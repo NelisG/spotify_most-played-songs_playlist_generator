@@ -1,7 +1,7 @@
-# spotify_most-played-songs_playlist_generator
-This repository contains the Python code to automatically create or update your top-tracks playlists. Information on your top-tracks statistics is fetched from your Last.fm account. This data is used to generate your top-tracks playlists.
+# Spotify top-tracks playlists
+This repository contains the Python code to automatically create or update your top-tracks playlists. Top-tracks statistics are fetched from your [Last.fm](www.last.fm) account. These statistics are then used to update your Spotify playlists.
 
-By default this code creates/updates the following three playlists:
+By default this code creates/updates the following three playlists on your Spotify account:
   * Top 10 | WEEK
   * Top 30 | MONTH
   * Top 50 | YEAR
@@ -17,6 +17,10 @@ After this you can clone the main.py file from this repository and execute it as
 `python main.py <Spotify_username> <Lastfm_username>`
 
 The first time you run the script a link will be opened in your default browser to give the application access to modify your Spotify playlists with the scope "playlist-modify-public". After giving the application access, you are directed to a link starting with http://example.com/... Copy the whole link and paste it in the terminal or command prompt to give the script the necessary permissions. This will result in your top-tracks playlists to be generated/updated.
+
+## Automation (Linux)
+
+... information about crontab...
 
 ## Further Development
 
