@@ -10,11 +10,11 @@ By default this code creates/updates the following three playlists on your Spoti
 
 First make sure you have the necessary Python libraries. The code uses among other the [Spotipy library](https://spotipy.readthedocs.io/en/latest/#). To install this on machines which already have Python and pip installed you can simply execute:
 
-`pip install spotipy`
+```pip install spotipy```
 
 After this you can clone the main.py file from this repository and execute it as follows:
 
-`python main.py <Spotify_username> <Lastfm_username>`
+```python main.py <Spotify_username> <Lastfm_username>```
 
 The first time you run the script a link will be opened in your default browser to give the application access to modify your Spotify playlists with the scope "playlist-modify-public". After giving the application access, you are directed to a link starting with http://example.com/... Copy the whole link and paste it in the terminal or command prompt to give the script the necessary permissions. This will result in your top-tracks playlists to be generated/updated.
 
@@ -26,20 +26,25 @@ For example on a Raspberry Pi on which main.py is stored in /home/pi/spotify_pla
 
 Make a simple bash script:
 
-`$ sudo nano /home/pi/spotify_playlists/automate.sh`
+```bash
+$sudo nano /home/pi/spotify_playlists/automate.sh
+```
 
 Add the following lines:
 
-`cd /home/pi/spotify_playlists
-/usr/bin/python main.py`
+``` 
+cd /home/pi/spotify_playlists
+
+/usr/bin/python main.py 
+```
 
 Open the Crontab in the terminal:
 
-`$ crontab -e`
+```$ crontab -e```
 
 Add the Cron job at the end of the file:
 
-`0 8 * * * bash /home/pi/spotify_playlists/automate.sh`
+```0 8 * * * bash /home/pi/spotify_playlists/automate.sh```
 
 This code will run every day at 8 AM (if your device is online at that time). More information on the Crontab file is found in the [Crontab documentation](https://linux.die.net/man/5/crontab). 
 
