@@ -20,11 +20,32 @@ The first time you run the script a link will be opened in your default browser 
 
 ## Automation (Linux)
 
-... information about crontab...
+It is recommended to make this script run at least once a week as your top-tracks change over time. On most Linux distributions it is common to do this using [Cron](https://en.wikipedia.org/wiki/Cron). An automated job is added to the crontab (the Cron table). It is important to note that Cron jobs are executed as Root and do not necessarily use the same Python version as the user-account. It is also important to note that your Spotify access token (which you obtained when you first ran the script) is stored in the same directory from where you ran the script. Therefor it is recommended to make a simple Bash script to ensure that the cronjob executes the Python script from the directory containing the access token. 
+
+For example on a Raspberry Pi on which main.py is stored in /home/pi/spotify_playlists/
+
+Make a simple bash script:
+
+`$ sudo nano /home/pi/spotify_playlists/automate.sh`
+
+Add the following lines:
+
+`cd /home/pi/spotify_playlists
+/usr/bin/python main.py`
+
+Open the Crontab in the terminal:
+
+`$ crontab -e`
+
+Add the Cron job at the end of the file:
+
+`0 8 * * * bash /home/pi/spotify_playlists/automate.sh`
+
+This code will run every day at 8 AM (if your device is online at that time). More information on the Crontab file is found in the [Crontab documentation](https://linux.die.net/man/5/crontab). 
 
 ## Further Development
 
-It is possible to fetch the top tracks of a Spotify user directly from the Spotify account. This would using a Last.fm account in this application unnecessary. There are however only three time ranges allowed for queries in the Spotify API:
+It is possible to fetch the top tracks of a Spotify user directly from the Spotify account. This would make using a Last.fm account in this application unnecessary. There are however only three time ranges allowed for queries in the Spotify API:
 
   * short_term: approximately 4 weeks
   * medium_term: approximately 6 months
