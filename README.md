@@ -27,7 +27,7 @@ For example on a Raspberry Pi on which main.py is stored in /home/pi/spotify_pla
 Make a simple bash script:
 
 ```bash
-$sudo nano /home/pi/spotify_playlists/automate.sh
+$ sudo nano /home/pi/spotify_playlists/automate.sh
 ```
 
 Add the following lines:
@@ -35,7 +35,7 @@ Add the following lines:
 ``` 
 cd /home/pi/spotify_playlists
 
-/usr/bin/python main.py 
+/usr/bin/python main.py <spotify_username> <lastfm_username>
 ```
 
 Open the Crontab in the terminal:
